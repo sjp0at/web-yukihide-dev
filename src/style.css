@@ -86,6 +86,12 @@ p.subtitle {
   background: radial-gradient(circle at top left, var(--card-border), transparent);
   opacity: 0;
   transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .card:hover {
@@ -173,6 +179,88 @@ p.subtitle {
   gap: 0.5rem;
 }
 
+.card-actions {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.web-app-link {
+  height: 40px;
+  min-width: 142px;
+  padding: 0 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.28), transparent 42%),
+    linear-gradient(#111827, #020617);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.web-app-link:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.42), transparent 45%),
+    linear-gradient(#172033, #020617);
+}
+
+.web-app-icon {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  position: relative;
+  flex: 0 0 auto;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.web-app-icon::before,
+.web-app-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--accent-color);
+}
+
+.web-app-icon::before {
+  left: 3px;
+  right: 3px;
+  top: 8px;
+  height: 2px;
+}
+
+.web-app-icon::after {
+  top: 3px;
+  bottom: 3px;
+  left: 8px;
+  width: 2px;
+}
+
+.web-app-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  line-height: 1;
+}
+
+.web-app-kicker {
+  color: #cbd5e1;
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.web-app-label {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
 .playstore-badge {
   height: 40px;
   width: auto;
@@ -181,6 +269,44 @@ p.subtitle {
 
 .playstore-badge:hover {
   transform: scale(1.05);
+}
+
+.updates {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.updates h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.updates-list {
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.updates-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.updates-list time {
+  color: #cbd5e1;
+  flex: 0 0 auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 
@@ -195,5 +321,10 @@ p.subtitle {
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .updates-list li {
+    flex-direction: column;
+    gap: 0.1rem;
   }
 }
